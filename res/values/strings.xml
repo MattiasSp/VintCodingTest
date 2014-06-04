@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Vint Coding Test</string>
+    <string name="get_started">To view your friend list, login using Facebook</string>
+    <string name="app_id">158951497608842</string>
+    <string name="main_user_heading_a">Showing the users of &quot;</string>
+    <string name="main_user_heading_b">&quot; among the Facebook&#8482; friends of: </string>
+    <string name="no_list_items">Loading friend list&#8230;</string>
+    <string name="no_friends">None of your friends are using the app.</string>
+
+</resources>

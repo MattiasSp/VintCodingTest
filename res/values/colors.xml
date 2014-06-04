@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="splash_background">#8080a0</color>
+    <color name="main_background">#a0a0c0</color>
+    <color name="main_divider">#FF909090</color>
+    <color name="row_divider">#FF909090</color>
+</resources>
