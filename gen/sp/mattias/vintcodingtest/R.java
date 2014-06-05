@@ -998,7 +998,7 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f0a0002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f07000e;
+        public static final int abc_search_url_text_holo=0x7f07000d;
         public static final int abc_search_url_text_normal=0x7f070007;
         public static final int abc_search_url_text_pressed=0x7f070009;
         public static final int abc_search_url_text_selected=0x7f070008;
@@ -1011,7 +1011,6 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_not_connected_text_color=0x7f070005;
         public static final int main_background=0x7f07000b;
         public static final int main_divider=0x7f07000c;
-        public static final int row_divider=0x7f07000d;
         public static final int splash_background=0x7f07000a;
     }
     public static final class dimen {
@@ -1500,6 +1499,8 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f080025;
+        public static final int alert_buttontext_ok=0x7f08002f;
+        public static final int alert_no_network=0x7f08002e;
         public static final int app_id=0x7f080029;
         public static final int app_name=0x7f080027;
         public static final int com_facebook_choose_friends=0x7f08000f;

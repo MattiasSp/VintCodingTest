@@ -8,5 +8,7 @@
     <string name="main_user_heading_b">&quot; among the Facebook&#8482; friends of: </string>
     <string name="no_list_items">Loading friend list&#8230;</string>
     <string name="no_friends">None of your friends are using the app.</string>
+    <string name="alert_no_network">There is no active Internet connection. Please check your settings.</string>
+    <string name="alert_buttontext_ok">OK</string>
 
 </resources>

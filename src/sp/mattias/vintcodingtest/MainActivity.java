@@ -2,9 +2,14 @@ package sp.mattias.vintcodingtest;
 
 import java.util.List;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -87,6 +92,8 @@ public class MainActivity extends FragmentActivity {
 	    super.onResume();
 	    mUiHelper.onResume();
 	    mIsResumed = true;
+	    
+	    checkInternetConnection(this); // Make sure there is an Internet connection.
 	}
 	
 	@Override
@@ -180,6 +187,29 @@ public class MainActivity extends FragmentActivity {
 	        }
 	    }
 	}
+	
+	/**
+	 * Checks if there is an active internet connection and if there isn't,
+	 * sends the user to the mobile networks settings to fix it.
+	 * @param context The current context.
+	 */
+	private void checkInternetConnection(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+        	NetworkInfo info = cm.getActiveNetworkInfo();
+            if (info == null) { // There is no Internet Connection; inform and send the user to settings.
+            	AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+        		alertDialog.setMessage(getString(R.string.alert_no_network));
+        		alertDialog.setButton(DialogInterface.BUTTON_NEUTRAL, getString(R.string.alert_buttontext_ok), new DialogInterface.OnClickListener() {
+        			public void onClick(DialogInterface dialog, int which) {
+        				startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
+        				dialog.dismiss();    		      
+        			}
+        		});		
+        		alertDialog.show(); // Display the dialog to the user.
+            }
+        }
+	}
 
 	/**
 	 * A fragment for the splash screen asking the user to log in using Facebook.
@@ -194,11 +224,6 @@ public class MainActivity extends FragmentActivity {
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_splash, container, false);
-			
-			// Ask for the friend list permission.
-/*			LoginButton loginButton = (LoginButton) rootView.findViewById(R.id.login_button);
-			loginButton.setFragment(this);
-			loginButton.setReadPermissions(Arrays.asList("user_friends"));*/
 			
 			return rootView;
 		}
@@ -413,7 +438,7 @@ public class MainActivity extends FragmentActivity {
 			// If the list item has not already been created, inflate it.
 			if (convertView == null) {
 				LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				listItemView = inflater.inflate(R.id.list_item, parent, false);
+				listItemView = inflater.inflate(R.layout.list_item, parent, false);
 				
 				// Store the view references in the ViewHolder.
 				ViewHolder newViewHolder = new ViewHolder();
